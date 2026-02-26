@@ -6,7 +6,6 @@ class Palindrome {
         String javaVersion = System.getProperty("java.version");
         System.out.println("Java Version: " + javaVersion);
     }
-
     void checkPalindrome(String s) {
         int size = s.length();
         boolean isPalindrome = true;
@@ -22,7 +21,6 @@ class Palindrome {
             System.out.println("The string is NOT a palindrome");
         }
     }
-
     void reverseString(String s) {
         int str_len = s.length();
         System.out.print("The string after reversing is: ");
@@ -45,7 +43,6 @@ class Palindrome {
             return 0;
         }
     }
-
     void twoPointerApproach(String s) {
         char[] charArray = s.toCharArray();
         int size = charArray.length;
@@ -70,8 +67,6 @@ class Palindrome {
             System.out.println("The string is NOT a palindrome (checked till middle)");
         }
     }
-
-
     void stack_palindrome() {
         Deque<Character> stack = new ArrayDeque<>();
         String s = "madam";
@@ -99,64 +94,17 @@ class Palindrome {
             System.out.println("The string is NOT a palindrome (stack approach)");
         }
     }
-
-
-
-    void queue_palindrome() {
-        Queue<Character> q = new ArrayDeque<>();
-        String s = "radar";
-        System.out.println(s + " is the string to be checked using queue");
-
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-            q.add(ch);
-        }
-
-
-        for (int i = 0; i < s.length(); i++) {
-            char c = q.peek();
-            System.out.print(c);
-            q.remove();
-        }
-
-        System.out.println("\nchecked palindrome");
-    }
-
-
-
-
 }
+
 public class PalindromeCheckerApp{
     public static void main(String[] args) {
         Palindrome p = new Palindrome();
         p.start();
-
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter your string: ");
-        String s = sc.nextLine();
-
-        p.reverseString(s);
-
-        System.out.println("To check palindrome using equals(), enter 'yes': ");
-        String ans = sc.nextLine();
-
-        if (ans.equals("yes")) {
-            if (p.str_equals(s) == 1) {
-                System.out.println("Palindrome found");
-            } else {
-                System.out.println("Not a Palindrome");
-            }
-        } else {
-            System.out.println("Since you didn’t enter 'yes', we’ll move forward with other functions.");
-        }
-
-        // You can also test the other approaches:
-        p.checkPalindrome(s);
-        p.twoPointerApproach(s);
+        p.checkPalindrome("abba");
+        p.reverseString("acca");
+        p.twoPointerApproach("pkhf");
         p.stack_palindrome();
-        p.queue_palindrome();
 
-        sc.close();
     }
 }
 
