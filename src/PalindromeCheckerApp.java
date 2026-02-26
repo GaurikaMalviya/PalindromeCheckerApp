@@ -94,6 +94,26 @@ class Palindrome {
             System.out.println("The string is NOT a palindrome (stack approach)");
         }
     }
+    void queue_palindrome() {
+        Queue<Character> q = new ArrayDeque<>();
+        String s = "radar";
+        System.out.println(s + " is the string to be checked using queue");
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            q.add(ch);
+        }
+
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = q.peek();
+            System.out.print(c);
+            q.remove();
+        }
+
+        System.out.println("\nchecked palindrome");
+    }
+
 }
 
 public class PalindromeCheckerApp{
