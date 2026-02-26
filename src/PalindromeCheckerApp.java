@@ -21,6 +21,28 @@ class Palindrome {
             System.out.println("The string is NOT a palindrome");
         }
     }
+    void reverseString(String s) {
+        int str_len = s.length();
+        System.out.print("The string after reversing is: ");
+        for (int i = str_len - 1; i >= 0; i--) {
+            System.out.print(s.charAt(i));
+        }
+        System.out.println();
+        System.out.println("The original string is: " + s);
+    }
+
+    int str_equals(String s) {
+        System.out.println(s + " is the original string");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a string of your choice for comparison: ");
+        String st = sc.nextLine();
+        sc.close();
+        if (st.equals(s)) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }
 
 public class PalindromeCheckerApp{
@@ -28,6 +50,7 @@ public class PalindromeCheckerApp{
         Palindrome p = new Palindrome();
         p.start();
         p.checkPalindrome("abba");
+        p.reverseString("acca");
 
     }
 }
