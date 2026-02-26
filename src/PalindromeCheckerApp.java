@@ -67,6 +67,33 @@ class Palindrome {
             System.out.println("The string is NOT a palindrome (checked till middle)");
         }
     }
+    void stack_palindrome() {
+        Deque<Character> stack = new ArrayDeque<>();
+        String s = "madam";
+        System.out.println(s + " is the string to be checked using stack");
+        int length = s.length();
+
+
+        for (int i = 0; i < length; i++) {
+            stack.push(s.charAt(i));
+        }
+
+
+        boolean isPalindrome = true;
+        for (int i = 0; i < length; i++) {
+            char ch = stack.pop();
+            if (ch != s.charAt(i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if (isPalindrome) {
+            System.out.println("The string is a palindrome (stack approach)");
+        } else {
+            System.out.println("The string is NOT a palindrome (stack approach)");
+        }
+    }
 }
 
 public class PalindromeCheckerApp{
@@ -76,6 +103,7 @@ public class PalindromeCheckerApp{
         p.checkPalindrome("abba");
         p.reverseString("acca");
         p.twoPointerApproach("pkhf");
+        p.stack_palindrome();
 
     }
 }
