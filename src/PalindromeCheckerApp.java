@@ -43,6 +43,30 @@ class Palindrome {
             return 0;
         }
     }
+    void twoPointerApproach(String s) {
+        char[] charArray = s.toCharArray();
+        int size = charArray.length;
+        int start = 0;
+        int end = size - 1;
+        int mid = (start + end) / 2;
+        boolean isPalindrome = true;
+
+        while (start <= mid) {
+            if (charArray[start] == charArray[end]) {
+                start++;
+                end--;
+            } else {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if (isPalindrome) {
+            System.out.println("The string is a palindrome (checked till middle)");
+        } else {
+            System.out.println("The string is NOT a palindrome (checked till middle)");
+        }
+    }
 }
 
 public class PalindromeCheckerApp{
@@ -51,6 +75,7 @@ public class PalindromeCheckerApp{
         p.start();
         p.checkPalindrome("abba");
         p.reverseString("acca");
+        p.twoPointerApproach("pkhf");
 
     }
 }
